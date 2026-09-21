@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>People | SocialConnect</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="{% url 'home' %}" class="brand">
+                Social<span>Connect</span>
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+                <a href="{% url 'profile' %}">
+                    Profile
+                </a>
+
+                <a href="{% url 'users' %}" class="active">
+                    People
+                </a>
+
+                <a href="{% url 'logout' %}" class="logout-link">
+                    Logout
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- USERS -->
+
+    <main class="container">
+
+        <section class="hero-card">
+
+            <p class="eyebrow">
+                COMMUNITY
+            </p>
+
+            <h1>
+                Discover People
+            </h1>
+
+            <p class="hero-text">
+                Find people and connect with your community.
+            </p>
+
+        </section>
+
+
+        {% for user in users %}
+
+        <section class="user-card card">
+
+            <div class="user-info">
+
+                <div class="avatar large">
+                    {{ user.username|first|upper }}
+                </div>
+
+                <div>
+
+                    <h3>
+                        {{ user.username }}
+                    </h3>
+
+                    <p>
+                        SocialConnect Member
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="{% url 'follow_user' user.id %}"
+                class="primary-btn"
+            >
+                Follow / Unfollow
+            </a>
+
+        </section>
+
+        {% empty %}
+
+        <section class="empty-state card">
+
+            <div class="empty-icon">
+                👥
+            </div>
+
+            <h2>
+                No other users found
+            </h2>
+
+            <p>
+                Create another account to test connections.
+            </p>
+
+        </section>
+
+        {% endfor %}
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 SocialConnect • Built with Django</p>
+    </footer>
+
+</body>
+
+</html>

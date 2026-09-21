@@ -1,0 +1,260 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SocialConnect | Home</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="{% url 'home' %}" class="brand">
+                Social<span>Connect</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="{% url 'home' %}" class="active">Home</a>
+                <a href="{% url 'profile' %}">Profile</a>
+                <a href="{% url 'users' %}">People</a>
+                <a href="{% url 'logout' %}" class="logout-link">Logout</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="container">
+
+        <!-- WELCOME -->
+        <section class="hero-card">
+
+            <div>
+                <p class="eyebrow">WELCOME BACK 👋</p>
+
+                <h1>
+                    Share your world with <span>SocialConnect</span>
+                </h1>
+
+                <p class="hero-text">
+                    Connect with people, share your thoughts and discover
+                    something new every day.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- CREATE POST -->
+        <section class="create-post card">
+
+            <div class="section-title">
+                <div class="avatar">
+                    {{ request.user.username|first|upper }}
+                </div>
+
+                <div>
+                    <h3>Create a post</h3>
+                    <p>Share something with your community</p>
+                </div>
+            </div>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <textarea
+                    name="content"
+                    placeholder="What's on your mind?"
+                    required
+                ></textarea>
+
+                <div class="post-actions">
+
+                    <span class="post-tip">
+                        💡 Share your thoughts
+                    </span>
+
+                    <button type="submit" class="primary-btn">
+                        Publish Post
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- POSTS -->
+        <div class="feed-header">
+            <h2>Latest Posts</h2>
+            <span>{{ posts|length }} post{{ posts|length|pluralize }}</span>
+        </div>
+
+
+        {% for post in posts %}
+
+        <article class="post-card card">
+
+            <!-- POST HEADER -->
+            <div class="post-header">
+
+                <div class="avatar">
+                    {{ post.user.username|first|upper }}
+                </div>
+
+                <div class="post-user">
+
+                    <h3>
+                        {{ post.user.username }}
+                    </h3>
+
+                    <small>
+                        {{ post.created_at|date:"M d, Y • g:i A" }}
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- POST CONTENT -->
+            <div class="post-content">
+
+                <p>
+                    {{ post.content }}
+                </p>
+
+            </div>
+
+
+            <!-- POST FOOTER -->
+            <div class="post-footer">
+
+                <div class="engagement">
+
+                    <span>
+                        ❤️ {{ post.like_set.count }} Likes
+                    </span>
+
+                    <span>
+                        💬 {{ post.comment_set.count }} Comments
+                    </span>
+
+                </div>
+
+                <a
+                    href="{% url 'like_post' post.id %}"
+                    class="like-btn"
+                >
+                    ❤️ Like
+                </a>
+
+            </div>
+
+
+            <!-- COMMENTS -->
+            <div class="comments-section">
+
+                <h4>Comments</h4>
+
+                {% for comment in post.comment_set.all %}
+
+                <div class="comment">
+
+                    <div class="comment-avatar">
+                        {{ comment.user.username|first|upper }}
+                    </div>
+
+                    <div class="comment-body">
+
+                        <strong>
+                            {{ comment.user.username }}
+                        </strong>
+
+                        <p>
+                            {{ comment.content }}
+                        </p>
+
+                        <small>
+                            {{ comment.created_at|date:"M d, Y • g:i A" }}
+                        </small>
+
+                    </div>
+
+                </div>
+
+                {% empty %}
+
+                <p class="no-comments">
+                    No comments yet. Be the first to comment!
+                </p>
+
+                {% endfor %}
+
+
+                <!-- COMMENT FORM -->
+                <form
+                    method="POST"
+                    action="{% url 'add_comment' post.id %}"
+                    class="comment-form"
+                >
+
+                    {% csrf_token %}
+
+                    <input
+                        type="text"
+                        name="content"
+                        placeholder="Write a comment..."
+                        required
+                    >
+
+                    <button type="submit">
+                        Comment
+                    </button>
+
+                </form>
+
+            </div>
+
+        </article>
+
+        {% empty %}
+
+        <section class="empty-state card">
+
+            <div class="empty-icon">📝</div>
+
+            <h2>No posts yet</h2>
+
+            <p>
+                Be the first person to share something!
+            </p>
+
+        </section>
+
+        {% endfor %}
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 SocialConnect • Built with Django</p>
+    </footer>
+
+</body>
+
+</html>

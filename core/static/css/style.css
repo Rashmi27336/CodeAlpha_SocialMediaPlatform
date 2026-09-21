@@ -1,0 +1,611 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 800;
+    color: #111827;
+}
+
+.brand span {
+    color: #1877f2;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4b5563;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: #eaf2ff;
+    color: #1877f2;
+}
+
+.nav-links .logout-link {
+    color: #dc2626;
+}
+
+.nav-links .logout-link:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 760px;
+    margin: 30px auto;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero-card {
+    background: linear-gradient(135deg, #1877f2, #5b8def);
+    color: white;
+    padding: 35px;
+    border-radius: 18px;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 25px rgba(24, 119, 242, 0.18);
+}
+
+.hero-card h1 {
+    font-size: 30px;
+    margin: 8px 0 12px;
+}
+
+.hero-card h1 span {
+    color: #dbeafe;
+}
+
+.hero-text {
+    margin: 0;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.eyebrow {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   CREATE POST
+========================= */
+
+.create-post {
+    padding: 24px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.section-title h3 {
+    margin: 0 0 4px;
+}
+
+.section-title p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* =========================
+   AVATAR
+========================= */
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1877f2;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.avatar.large {
+    width: 58px;
+    height: 58px;
+    font-size: 22px;
+}
+
+
+/* =========================
+   TEXTAREA
+========================= */
+
+textarea {
+    width: 100%;
+    min-height: 110px;
+    resize: vertical;
+
+    padding: 14px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #1877f2;
+    box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.1);
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.post-tip {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary-btn {
+    display: inline-block;
+    background: #1877f2;
+    color: white;
+    text-decoration: none;
+    border: none;
+
+    padding: 11px 18px;
+    border-radius: 8px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.primary-btn:hover {
+    background: #0d5dcc;
+    transform: translateY(-1px);
+}
+
+.like-btn {
+    text-decoration: none;
+    color: #1877f2;
+    font-weight: bold;
+}
+
+
+/* =========================
+   FEED HEADER
+========================= */
+
+.feed-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 28px 0 15px;
+}
+
+.feed-header h2 {
+    margin: 0;
+}
+
+.feed-header span {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* =========================
+   POST
+========================= */
+
+.post-card {
+    padding: 22px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.post-user h3 {
+    margin: 0 0 4px;
+}
+
+.post-user small {
+    color: #6b7280;
+}
+
+.post-content {
+    padding: 18px 0;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.post-content p {
+    margin: 0;
+}
+
+.post-footer {
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+
+    padding: 12px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.engagement {
+    display: flex;
+    gap: 18px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* =========================
+   COMMENTS
+========================= */
+
+.comments-section {
+    padding-top: 18px;
+}
+
+.comments-section h4 {
+    margin: 0 0 14px;
+}
+
+.comment {
+    display: flex;
+    gap: 10px;
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-avatar {
+    min-width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #dbeafe;
+    color: #1877f2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+.comment-body strong {
+    font-size: 14px;
+}
+
+.comment-body p {
+    margin: 4px 0;
+}
+
+.comment-body small {
+    color: #6b7280;
+}
+
+.comment-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.comment-form input {
+    flex: 1;
+    padding: 11px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.comment-form input:focus {
+    border-color: #1877f2;
+}
+
+.comment-form button {
+    background: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.no-comments {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card {
+    text-align: center;
+    padding: 40px 25px;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background: #1877f2;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.profile-card h1 {
+    margin: 0;
+}
+
+.profile-role {
+    color: #6b7280;
+}
+
+.bio {
+    max-width: 500px;
+    margin: 20px auto;
+    line-height: 1.6;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+
+    margin: 25px 0;
+}
+
+.profile-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profile-stats strong {
+    font-size: 22px;
+}
+
+.profile-stats span {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.profile-btn {
+    margin-top: 5px;
+}
+
+
+/* =========================
+   USERS
+========================= */
+
+.user-card {
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.user-info h3 {
+    margin: 0 0 5px;
+}
+
+.user-info p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.empty-icon {
+    font-size: 45px;
+}
+
+.empty-state h2 {
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    color: #6b7280;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    color: #9ca3af;
+    padding: 25px;
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 700px) {
+
+    .nav-container {
+        flex-direction: column;
+        padding: 15px 0;
+        gap: 12px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container {
+        width: 94%;
+        margin-top: 20px;
+    }
+
+    .hero-card {
+        padding: 25px;
+    }
+
+    .hero-card h1 {
+        font-size: 24px;
+    }
+
+    .post-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .primary-btn {
+        text-align: center;
+    }
+
+    .comment-form {
+        flex-direction: column;
+    }
+
+    .comment-form button {
+        padding: 11px;
+    }
+
+    .user-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .profile-stats {
+        gap: 35px;
+    }
+
+}
