@@ -1,61 +1,90 @@
-# CodeAlpha Social Media Platform
+# 🌐 SocialConnect – Social Media Platform
 
-A full-stack social media platform developed as part of the **CodeAlpha Full Stack Development Internship**.
+A professional mini social media platform developed as part of the **CodeAlpha Full Stack Development Internship – Task 2**.
 
-The application allows users to create accounts, connect with other users, create posts, like and comment on posts, and manage their social connections.
+SocialConnect allows users to create accounts, log in, create posts, like posts, comment on posts, view profiles, and follow or unfollow other users.
 
 ---
 
-## 🚀 Features
+## 📌 Project Overview
 
-### 👤 User Authentication
+**SocialConnect** is a full-stack social media web application built using **Python and Django** for the backend and **HTML, CSS, and JavaScript** for the frontend.
+
+The application demonstrates important full-stack development concepts such as:
+
+- User authentication
+- Database management
+- CRUD operations
+- Social interactions
+- Django models and views
+- Responsive frontend design
+- JavaScript-based user interface enhancements
+
+---
+
+## ✨ Features
+
+### 🔐 User Authentication
 
 - User registration
 - User login
 - User logout
-- Secure password handling using Django authentication
+- Password validation
+- Secure Django authentication
+- Automatic profile creation for new users
 
 ### 📝 Posts
 
-- Create posts
-- Display latest posts
-- View posts from different users
+- Create new posts
+- Display posts in the latest-first order
+- Show username and post creation time
+- Clean and responsive post interface
 
 ### ❤️ Likes
 
 - Like posts
 - Unlike posts
-- Display total likes
+- Display total number of likes
+- Prevent duplicate likes from the same user
 
 ### 💬 Comments
 
 - Add comments to posts
-- Display comments
-- Display comment count
-
-### 👥 Follow System
-
-- View other users
-- Follow users
-- Unfollow users
-- Display followers count
-- Display following count
+- Display comments below posts
+- Show the commenting user's username
+- Display comment creation time
 
 ### 👤 User Profiles
 
-- Personal profile page
-- Username display
-- Profile information
-- Followers count
-- Following count
+- View personal profile
+- Display username
+- Display profile information
+- Display followers count
+- Display following count
+
+### 👥 Follow System
+
+- Discover other users
+- Follow users
+- Unfollow users
+- Display follower and following relationships
 
 ### 🎨 User Interface
 
-- Clean and professional design
+- Professional and modern design
 - Responsive layout
-- Mobile-friendly interface
-- Navigation between pages
-- Interactive buttons and cards
+- Clean navigation
+- User-friendly forms
+- Responsive cards and buttons
+- Mobile-friendly styling
+
+### ⚡ JavaScript Enhancements
+
+- Post character counter
+- Form submission loading state
+- Logout confirmation
+- Automatic message handling
+- Mobile navigation support
 
 ---
 
@@ -84,13 +113,20 @@ The application allows users to create accounts, connect with other users, creat
 
 ---
 
-## 📂 Project Structure
+## 🏗️ Project Structure
 
 ```text
 CodeAlpha_SocialMediaPlatform/
 │
 ├── core/
 │   ├── migrations/
+│   │
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── style.css
+│   │   │
+│   │   └── js/
+│   │       └── script.js
 │   │
 │   ├── templates/
 │   │   ├── home.html
@@ -99,22 +135,17 @@ CodeAlpha_SocialMediaPlatform/
 │   │   ├── profile.html
 │   │   └── users.html
 │   │
-│   ├── static/
-│   │   └── css/
-│   │       └── style.css
-│   │
 │   ├── admin.py
 │   ├── models.py
-│   ├── tests.py
 │   └── views.py
 │
 ├── socialmedia/
 │   ├── __init__.py
-│   ├── asgi.py
 │   ├── settings.py
 │   ├── urls.py
+│   ├── asgi.py
 │   └── wsgi.py
 │
+├── .gitignore
 ├── manage.py
-├── README.md
-└── .gitignore
+└── README.md
